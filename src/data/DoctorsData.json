@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Aswin Ravivarman",
+    "speciality": "Cardiologist",
+    "experience": 12,
+    "qualification": "MBBS, MD (Cardiology)",
+    "hospital": "City Heart Care Hospital",
+    "availability": ["09:00 AM - 11:00 AM ", "04:00 PM - 06:00 PM"],
+    "consultationFee": 800,
+    "rating": 4.7,
+    "contactEmail": "aswin.ravivarman@hospital.com"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Giri Yuvaraj",
+    "speciality": "Dermatologist",
+    "experience": 8,
+    "qualification": "MBBS, MD (Dermatology)",
+    "hospital": "Skin & Care Clinic",
+    "availability": ["10:00 AM - 01:00 PM"],
+    "consultationFee": 600,
+    "rating": 4.5,
+    "contactEmail": "giri.yuvaraj@hospital.com"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Bala Krishna",
+    "speciality": "Orthopedic Surgeon",
+    "experience": 15,
+    "qualification": "MBBS, MS (Orthopedics)",
+    "hospital": "Ortho Plus Hospital",
+    "availability": ["11:00 AM - 02:00 PM ", "05:00 PM - 07:00 PM"],
+    "consultationFee": 1000,
+    "rating": 4.8,
+    "contactEmail": "bala.krishna@hospital.com"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Harish Patel",
+    "speciality": "Pediatrician",
+    "experience": 10,
+    "qualification": "MBBS, MD (Pediatrics)",
+    "hospital": "Children Care Hospital",
+    "availability": ["09:30 AM - 12:30 PM"],
+    "consultationFee": 700,
+    "rating": 4.6,
+    "contactEmail": "harish.patel@hospital.com"
+  },
+  {
+    "id": 5,
+    "name": "Dr. Guru Prakash",
+    "speciality": "Neurologist",
+    "experience": 18,
+    "qualification": "MBBS, DM (Neurology)",
+    "hospital": "Neuro Life Institute",
+    "availability": ["02:00 PM - 05:00 PM"],
+    "consultationFee": 1200,
+    "rating": 4.9,
+    "contactEmail": "guru.prakash@hospital.com"
+  }
+]
