@@ -37,7 +37,7 @@ function AdminDashboard() {
       setDoctors(initialDoctors);
     }
 
-  }, []);
+  }, [currentUser, navigate]);
 
   function handleChange(e) {
     setFormData({

@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Login() {
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     function handleLogin(e) {
 
@@ -13,9 +10,6 @@ function Login() {
 
         const emailValue = datas.get('email');
         const passwordValue = datas.get('password');
-
-        setEmail(emailValue);
-        setPassword(passwordValue);
 
         const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -29,7 +23,7 @@ function Login() {
         }
 
         sessionStorage.setItem('currentUser', JSON.stringify(validUser));
-        // alert('Login Successful!');
+
         e.target.reset();
         window.location.href = "/";
     }
