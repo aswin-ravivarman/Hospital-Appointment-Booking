@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import initialDoctors from "../data/DoctorsData.json";
 
 function AdminDashboard() {
 
@@ -24,10 +25,17 @@ function AdminDashboard() {
 
     if (!currentUser || currentUser.email !== "admin@gmail.com") {
       navigate("/");
+      return;
     }
 
-    const storedDoctors = JSON.parse(localStorage.getItem("doctors")) || [];
-    setDoctors(storedDoctors);
+    const storedDoctors = localStorage.getItem("doctors");
+
+    if (storedDoctors) {
+      setDoctors(JSON.parse(storedDoctors));
+    } else {
+      localStorage.setItem("doctors", JSON.stringify(initialDoctors));
+      setDoctors(initialDoctors);
+    }
 
   }, []);
 
@@ -52,7 +60,9 @@ function AdminDashboard() {
       experience: Number(formData.experience),
       qualification: formData.qualification,
       hospital: formData.hospital,
-      availability: formData.availability.split(","),
+      availability: formData.availability
+        ? formData.availability.split(",").map(a => a.trim())
+        : [],
       consultationFee: Number(formData.consultationFee),
       rating: Number(formData.rating),
       contactEmail: formData.contactEmail
@@ -81,21 +91,26 @@ function AdminDashboard() {
   return (
     <div className="container mt-4">
       <h2 className="text-primary mb-4">Admin Dashboard</h2>
+
       <div className="card p-4 shadow mb-4">
         <h4>Add Doctor</h4>
-        <input className="form-control mb-2" name="name"
+
+        <input className="form-control mb-2"
+          name="name"
           placeholder="Doctor Name"
           value={formData.name}
           onChange={handleChange}
         />
 
-        <input className="form-control mb-2" name="speciality"
+        <input className="form-control mb-2"
+          name="speciality"
           placeholder="Speciality"
           value={formData.speciality}
           onChange={handleChange}
         />
 
-        <input type="number" className="form-control mb-2"
+        <input type="number"
+          className="form-control mb-2"
           name="experience"
           placeholder="Experience (years)"
           value={formData.experience}
@@ -140,8 +155,7 @@ function AdminDashboard() {
           onChange={handleChange}
         />
 
-        <input
-          type="email"
+        <input type="email"
           className="form-control mb-3"
           name="contactEmail"
           placeholder="Contact Email"
@@ -161,7 +175,7 @@ function AdminDashboard() {
         <h4>All Doctors</h4>
 
         {doctors.length === 0 ? (
-          <p>No doctors added.</p>
+          <p>No doctors available.</p>
         ) : (
           doctors.map((doc) => (
             <div key={doc.id} className="border p-2 mb-2">
@@ -174,8 +188,13 @@ function AdminDashboard() {
           ))
         )}
       </div>
+      
+
+
 
     </div>
+
+    
   );
 }
 

@@ -8,6 +8,7 @@ import AppointmentList from "./components/AppointmentList";
 import Home from "./components/Home";
 import PatientProfile from "./components/PatientProfile";
 import AdminDashboard from "./components/AdminDashboard";
+import data from "./data/DoctorsData.json";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -69,7 +70,7 @@ function App() {
         />
 
         <Route path="/admin" element={currentUser && currentUser.email === "admin@gmail.com"
-          ? <AdminDashboard /> : <Navigate to="/" />
+          ? <AdminDashboard doctors={data}/> : <Navigate to="/" />
         }
         />
 
